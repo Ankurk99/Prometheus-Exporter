@@ -15,23 +15,30 @@ import (
 )
 
 var (
+totalAlertsRequestsinHost = prometheus.NewCounterVec(
+	prometheus.CounterOpts{
+		Name: "kubearmor_relay_logs_in_host_total",
+		Help: "Total number of logs generated from Kubearmor Relay based on HostName",
+	}, []string{"HostName"})
+
+
 totalAlertsRequestsinPod = prometheus.NewCounterVec(
 	prometheus.CounterOpts{
-		Name: "kubearmor_relay_logs_total_on_Pod",
+		Name: "kubearmor_relay_logs_in_pod_total",
 		Help: "Total number of logs generated from Kubearmor Relay based on PodName",
 	}, []string{"PodName"})
 
 
 totalAlertsRequestsinNamespace = prometheus.NewCounterVec(
 	prometheus.CounterOpts{
-		Name: "kubearmor_relay_logs_total_in_Namespace",
+		Name: "kubearmor_relay_logs_in_namespace_total",
 		Help: "Total number of logs generated from Kubearmor Relay based on Namespace",
 	}, []string{"NamespaceName"})
 
 
 totalAlertsRequestsinContainer = prometheus.NewCounterVec(
 	prometheus.CounterOpts{
-		Name: "kubearmor_relay_logs_total_in_Container",
+		Name: "kubearmor_relay_logs_in_container_total",
 		Help: "Total number of logs generated from Kubearmor Relay based on Container",
 	}, []string{"ContainerName"})
 
@@ -43,7 +50,7 @@ totalAlertsWithPolicy = prometheus.NewCounterVec(
 
 totalAlertsWithSeverity = prometheus.NewCounterVec(
 	prometheus.CounterOpts{
-		Name: "kubearmor_relay_logs_severity_total",
+		Name: "kubearmor_relay_logs_with_severity_total",
 		Help: "Total number of logs generated with X severity or above",
 	}, []string{"Severity"})
 
@@ -67,6 +74,7 @@ totalAlertsWithAction = prometheus.NewCounterVec(
 )
 
 func init() {
+	prometheus.MustRegister(totalAlertsRequestsinHost)
 	prometheus.MustRegister(totalAlertsRequestsinPod)
 	prometheus.MustRegister(totalAlertsRequestsinNamespace)
 	prometheus.MustRegister(totalAlertsRequestsinContainer)
@@ -116,6 +124,7 @@ func GetPrometheusAlerts(wg *sync.WaitGroup) {
 		}
 
 		fmt.Println(alertIn)
+		totalAlertsRequestsinHost.WithLabelValues(alertIn.HostName).Add(1)
 		totalAlertsRequestsinPod.WithLabelValues(alertIn.PodName).Add(1)
 		totalAlertsRequestsinNamespace.WithLabelValues(alertIn.NamespaceName).Add(1)
 		totalAlertsRequestsinContainer.WithLabelValues(alertIn.ContainerName).Add(1)
