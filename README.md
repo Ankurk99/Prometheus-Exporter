@@ -76,5 +76,15 @@ It exposes the following KubeArmor metrics to Prometheus:
 | Number of logs with operation (Process, File, Network, Capabilities)       |Operation      |kubearmor_relay_logs_with_operation_total |
 | Number of logs with action (Allow, Audit, Block)                           |Action         |kubearmor_relay_logs_with_action_total    |
 
+## Grafana Dashboard
 
+![Logs on Host](images/logsonhost.png)
+![Logs on Pod](images/logsonpod.png)
+![Logs on Namespace](images/logsonnamespace.png)
+![Logs on Container](images/logsoncontainer.png)
+![Logs with Policy](images/logswithpolicy.png)
+![Logs with Severity](images/logswithseverity.png)
+![Logs with Type](images/logswithtype.png)
+![Logs with Operation](images/logswithoperation.png)
+![Logs with Action](images/logswithaction.png)
 
