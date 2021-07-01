@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 6,
+  "id": 11,
   "links": [],
   "panels": [
     {
@@ -65,23 +65,17 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "topk(10,kubearmor_relay_logs_total{HostName=\"kubearmor-dev\"})",
+          "expr": "max(kubearmor_relay_logs_with_action_total) by (Action)",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
-        },
-        {
-          "expr": "",
-          "interval": "",
-          "legendFormat": "",
-          "refId": "B"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Top 10 Pods with most number of logs",
+      "title": "Number of logs with given Action",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -126,12 +120,12 @@
     "list": []
   },
   "time": {
-    "from": "now-5m",
+    "from": "now-6h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Top 10 Pods with most number of logs",
-  "uid": "gIGZegk7z",
-  "version": 2
+  "title": "Total number of logs with given Action",
+  "uid": "lxYfebz7k",
+  "version": 1
 }

@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 4,
+  "id": 10,
   "links": [],
   "panels": [
     {
@@ -65,7 +65,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "topk(10, kubearmor_relay_logs_severity_total)",
+          "expr": "max(kubearmor_relay_logs_total_in_Namespace) by (NamespaceName)",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -75,7 +75,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Top 10 pods with most number of severity",
+      "title": "Number of logs in given Namespace",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -125,7 +125,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Top 10 Pods with most number of severity",
-  "uid": "LNQNv4k7k",
+  "title": "Total number of logs in given Namespace",
+  "uid": "jKDJ6xk7k",
   "version": 1
 }
