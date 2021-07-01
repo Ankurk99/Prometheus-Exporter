@@ -78,13 +78,8 @@ It exposes the following KubeArmor metrics to Prometheus:
 
 ## Grafana Dashboard
 
-![Logs on Host](images/logsonhost.png)
-![Logs on Pod](images/logsonpod.png)
-![Logs on Namespace](images/logsonnamespace.png)
-![Logs on Container](images/logsoncontainer.png)
-![Logs with Policy](images/logswithpolicy.png)
-![Logs with Severity](images/logswithseverity.png)
-![Logs with Type](images/logswithtype.png)
-![Logs with Operation](images/logswithoperation.png)
-![Logs with Action](images/logswithaction.png)
+![Logs on Host](images/1.png)
+![Logs on Host](images/2.png)
+![Logs on Host](images/3.png)
+
 
