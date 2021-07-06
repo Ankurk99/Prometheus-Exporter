@@ -34,14 +34,14 @@ The podname will start with _kubearmor-prometheus-client_ and namespace will be 
 
 Expose the port on your local machine
 ```
-kubectl -n exporter port-forward service/grafana --address 0.0.0.0 --address :: 3000:3000
+kubectl -n explorer port-forward service/grafana --address 0.0.0.0 --address :: 3000:3000
 ```
 
 ### To access Prometheus
 
 Expose the port on your local machine
 ```
-kubectl -n exporter port-forward service/prometheus --address 0.0.0.0 --address :: 9090:9090
+kubectl -n explorer port-forward service/prometheus --address 0.0.0.0 --address :: 9090:9090
 ```
 
 ---
