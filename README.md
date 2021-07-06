@@ -47,7 +47,7 @@ kubectl -n explorer port-forward service/prometheus --address 0.0.0.0 --address 
 ---
 **Note:** If you are running it inside a vagrant you will need to port-forward the vagrant while ssh (ing) into it using:
 ```
-vagrant ssh -- -L 9090:127.0.0.1:9090
+vagrant ssh -- -L 9090:127.0.0.1:9091
 ```
 for prometheus and
 
