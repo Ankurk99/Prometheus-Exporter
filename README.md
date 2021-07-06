@@ -9,7 +9,8 @@ To run the Prometheus exporter (kubearmor-prometheus-client), we need Kubearmor 
 kubectl apply -f client_deploy.yaml
 ```
 This will deploy our Kubearmor Prometheus Client.  
-Now we will need to run the Prometheus and Grafana deployement.
+Now we will need to run the Prometheus and Grafana deployment.   
+The prometheus_grafana.yaml is highly inspired from the Cilium's example deployment of Prometheus and Grafana [https://raw.githubusercontent.com/cilium/cilium/1.10.2/examples/kubernetes/addons/prometheus/monitoring-example.yaml](https://raw.githubusercontent.com/cilium/cilium/1.10.2/examples/kubernetes/addons/prometheus/monitoring-example.yaml).
 
 ```
 kubectl apply -f prometheus_grafana.yaml
