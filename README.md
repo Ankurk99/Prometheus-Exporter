@@ -9,13 +9,13 @@ To run the Prometheus exporter (kubearmor-prometheus-client), we need Kubearmor 
 kubectl apply -f client_deploy.yaml
 ```
 This will deploy our Kubearmor Prometheus Client.  
-Now we will need to run the Prometheus and Grafana. We are currently using the Cilium's deployment of Prometheus and Grafana.
+Now we will need to run the Prometheus and Grafana deployement.
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/cilium/cilium/1.10.1/examples/kubernetes/addons/prometheus/monitoring-example.yaml
+kubectl apply -f prometheus_grafana.yaml
 ```
 
-This is an example deployment from Cilium that includes Prometheus and Grafana in a single deployment.
+This is an example deployment that includes Prometheus and Grafana in a single deployment.
 
 The default installation contains:  
 * **Grafana:** A visualization dashboard with Cilium Dashboard pre-loaded.  
@@ -34,14 +34,14 @@ The podname will start with _kubearmor-prometheus-client_ and namespace will be 
 
 Expose the port on your local machine
 ```
-kubectl -n cilium-monitoring port-forward service/grafana --address 0.0.0.0 --address :: 3000:3000
+kubectl -n exporter port-forward service/grafana --address 0.0.0.0 --address :: 3000:3000
 ```
 
 ### To access Prometheus
 
 Expose the port on your local machine
 ```
-kubectl -n cilium-monitoring port-forward service/prometheus --address 0.0.0.0 --address :: 9090:9090
+kubectl -n exporter port-forward service/prometheus --address 0.0.0.0 --address :: 9090:9090
 ```
 
 ---
