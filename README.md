@@ -58,8 +58,8 @@ for grafana.
 
 ---
 
-You should be able to see the below mentioned metrics on Prometheus UI at [localhost:9090](localhost:9090).  
-To view the Grafana Dashboard, head over to [localhost:3030](localhost:3030). You should be able to view the KubeArmor Dashboard.
+You should be able to see the below mentioned metrics on Prometheus UI at [localhost:9090](https://127.0.0.1:9090).  
+To view the Grafana Dashboard, head over to [localhost:3000](https://127.0.0.1:3000). You should be able to view the KubeArmor Dashboard.  
 
 ## Metrics
 It exposes the following KubeArmor metrics to Prometheus:  
