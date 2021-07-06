@@ -340,66 +340,32 @@ kind: ConfigMap
 metadata:
   labels:
     app: grafana
-  name: grafana-kubearmor-dashboard namespace: explorer data: kubearmor-dashboard.json: | { "annotations": { "list": [ { "builtIn": 1, "datasource": "-- Grafana --", "enable": true, "hide": true, "iconColor": "rgba(0, 211, 255, 1)", "name": "Annotations & Alerts", "type": "dashboard" }
+  name: grafana-kubearmor-dashboard 
+  namespace: explorer 
+data:
+  kubearmor-dashboard.json: |
+    {
+      "annotations": {
+        "list": [
+          {
+            "builtIn": 1,
+            "datasource": "-- Grafana --",
+            "enable": true,
+            "hide": true,
+            "iconColor": "rgba(0, 211, 255, 1)",
+            "name": "Annotations & Alerts",
+            "type": "dashboard"
+          }
         ]
       },
       "editable": true,
       "gnetId": null,
       "graphTooltip": 0,
-      "id": 4,
+      "id": 17,
       "links": [],
       "panels": [
         {
           "aliasColors": {},
-          "bars": false, "dashLength": 10, "dashes": false, "datasource": "prometheus", "fieldConfig": { "defaults": { "custom": {} }, "overrides": [] }, "fill": 1, "fillGradient": 0, "gridPos": { "h": 8, "w": 12, "x": 0, "y": 0 }, "hiddenSeries": false, "id": 18, "legend": { "avg": false, "current": false, "max": false, "min": false, "show": true, "total": false, "values": false }, "lines": true, "linewidth": 1, "nullPointMode": "null", "options": { "dataLinks": [] }, "percentage": false, "pointradius": 2, "points": false, "renderer": "flot", "seriesOverrides": [], "spaceLength": 10, "stack": false, "steppedLine": false, "targets": [ { "expr": "max(kubearmor_relay_logs_in_host_total) by (HostName)",
-              "interval": "",
-              "legendFormat": "",
-              "refId": "A"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Number of logs on given Host",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
           "bars": false,
           "dashLength": 10,
           "dashes": false,
@@ -413,104 +379,10 @@ metadata:
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 0
-          },
-          "hiddenSeries": false,
-          "id": 16,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "null",
-          "options": {
-            "dataLinks": []
-          },
-          "percentage": false,
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "max(kubearmor_relay_logs_in_pod_total) by (PodName)",
-              "interval": "",
-              "legendFormat": "",
-              "refId": "A"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Number of logs on given Pod",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": "prometheus",
-          "fieldConfig": {
-            "defaults": {
-              "custom": {}
-            },
-            "overrides": []
-          },
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 8,
+            "h": 9,
             "w": 12,
             "x": 0,
-            "y": 8
+            "y": 0
           },
           "hiddenSeries": false,
           "id": 2,
@@ -539,7 +411,7 @@ metadata:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "max(kubearmor_relay_logs_in_namespace_total) by (NamespaceName)",
+              "expr": "max(kubearmor_relay_logs_total_in_Namespace) by (NamespaceName)",
               "interval": "",
               "legendFormat": "",
               "refId": "A"
@@ -604,7 +476,7 @@ metadata:
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 8
+            "y": 0
           },
           "hiddenSeries": false,
           "id": 14,
@@ -633,7 +505,7 @@ metadata:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "max(kubearmor_relay_logs_in_container_total) by (ContainerName)",
+              "expr": "max(kubearmor_relay_logs_total_in_Container) by (ContainerName)",
               "interval": "",
               "legendFormat": "",
               "refId": "A"
@@ -697,11 +569,11 @@ metadata:
           "gridPos": {
             "h": 8,
             "w": 12,
-            "x": 0,
-            "y": 16
+            "x": 12,
+            "y": 8
           },
           "hiddenSeries": false,
-          "id": 4,
+          "id": 12,
           "legend": {
             "avg": false,
             "current": false,
@@ -727,7 +599,7 @@ metadata:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "max(kubearmor_relay_policy_logs_total) by (PolicyName)",
+              "expr": "max(kubearmor_relay_logs_with_action_total) by (Action)",
               "interval": "",
               "legendFormat": "",
               "refId": "A"
@@ -737,7 +609,101 @@ metadata:
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Number of logs with given Policy",
+          "title": "Number of logs with given Action",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "prometheus",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
+          "fill": 1,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 9
+          },
+          "hiddenSeries": false,
+          "id": 16,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "nullPointMode": "null",
+          "options": {
+            "dataLinks": []
+          },
+          "percentage": false,
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "max(kubearmor_relay_logs_total_on_Pod) by (PodName)",
+              "interval": "",
+              "legendFormat": "",
+              "refId": "A"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Number of logs on given Pod",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -821,7 +787,7 @@ metadata:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "max(kubearmor_relay_logs_with_severity_total) by (Severity)",
+              "expr": "max(kubearmor_relay_logs_severity_total) by (Severity)",
               "interval": "",
               "legendFormat": "",
               "refId": "A"
@@ -886,10 +852,10 @@ metadata:
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 24
+            "y": 17
           },
           "hiddenSeries": false,
-          "id": 6,
+          "id": 4,
           "legend": {
             "avg": false,
             "current": false,
@@ -915,7 +881,7 @@ metadata:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "max(kubearmor_relay_logs_with_type_total) by (Type)",
+              "expr": "max(kubearmor_relay_policy_logs_total) by (PolicyName)",
               "interval": "",
               "legendFormat": "",
               "refId": "A"
@@ -925,7 +891,7 @@ metadata:
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Number of logs with given Type",
+          "title": "Number of logs with given Policy",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -1074,10 +1040,10 @@ metadata:
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 32
+            "y": 25
           },
           "hiddenSeries": false,
-          "id": 12,
+          "id": 6,
           "legend": {
             "avg": false,
             "current": false,
@@ -1103,7 +1069,7 @@ metadata:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "max(kubearmor_relay_logs_with_action_total) by (Action)",
+              "expr": "max(kubearmor_relay_logs_with_type_total) by (Type)",
               "interval": "",
               "legendFormat": "",
               "refId": "A"
@@ -1113,7 +1079,7 @@ metadata:
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Number of logs with given Action",
+          "title": "Number of logs with given Type",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -1159,8 +1125,8 @@ metadata:
         "list": []
       },
       "time": {
-        "from": "now-5m",
-        "to": "now"
+        "from": "2021-07-01T06:31:12.300Z",
+        "to": "2021-07-01T06:31:12.304Z"
       },
       "timepicker": {},
       "timezone": "",
